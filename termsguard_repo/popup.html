@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="popup.css"/>
+</head>
+<body>
+  <header class="hdr">
+    <div class="brand">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+      <span>Terms Guard</span>
+    </div>
+    <label class="switch" title="Enable">
+      <input type="checkbox" id="enabled"/><span class="slider"></span>
+    </label>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="page">This page</button>
+    <button class="tab" data-tab="rem">Reminders <span id="remcount" class="badge" hidden>0</span></button>
+  </nav>
+
+  <section id="tab-page">
+    <div id="verdict" class="verdict" data-risk="clear" hidden>
+      <div class="v-count" id="vcount">0</div>
+      <div class="v-text"><div class="v-title" id="vtitle">things to check</div><div class="v-sub" id="vsub"></div></div>
+    </div>
+    <div id="items" class="items"></div>
+    <div id="scanned" class="scanned"></div>
+
+    <div id="nodecision" class="empty" hidden>
+      <p>No signup or checkout here.</p>
+      <span>Terms Guard activates on trial, subscription, signup and checkout pages \u2014 right before you commit.</span>
+    </div>
+    <div id="off" class="empty" hidden>
+      <p>Terms Guard is off.</p>
+      <span>Flip the switch above to start catching the fine print again.</span>
+    </div>
+    <button id="open" class="btn primary" hidden>Show the card on this page</button>
+  </section>
+
+  <section id="tab-rem" hidden>
+    <div id="remlist" class="items"></div>
+    <div id="noremind" class="empty"><p>No cancel reminders yet.</p><span>On a trial or subscription page, hit \u201CRemind me to cancel\u201D and it\u2019ll show up here.</span></div>
+  </section>
+
+  <div class="privacy">Pages are read and analyzed locally in your browser. Nothing you visit is uploaded.</div>
+  <script src="popup.js"></script>
+</body>
+</html>
